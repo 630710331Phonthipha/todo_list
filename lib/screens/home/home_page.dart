@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_list/models/todo_item.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,7 +25,7 @@ class _HomePageState extends State<HomePage> {
       // await Future.delayed(const Duration(seconds: 3), () {});
 
       final response =
-      await _dio.get('https://jsonplaceholder.typicode.com/todos');
+      await _dio.get('https://jsonplaceholder.typicode.com/albums');
       debugPrint(response.data.toString());
       // parse
       List list = jsonDecode(response.data.toString());
@@ -75,13 +76,7 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.all(8.0),
                     child: Row(children: [
                       Expanded(child: Text(todoItem.title)),
-                      Checkbox(
-                          value: todoItem.completed,
-                          onChanged: (newValue) {
-                            setState(() {
-                              todoItem.completed = newValue!;
-                            });
-                          })
+
                     ])));
           });
     }

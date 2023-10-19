@@ -17,7 +17,7 @@ class TodoItem {
     required this.userId,
     required this.id,
     required this.title,
-    this.completed = false,
+    this.completed = true,
   });
 
   factory TodoItem.fromJson(Map<String, dynamic> json) {
