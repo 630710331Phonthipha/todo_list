@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
       // await Future.delayed(const Duration(seconds: 3), () {});
 
       final response =
-      await _dio.get('https://jsonplaceholder.typicode.com/albums');
+        await _dio.get('https://jsonplaceholder.typicode.com/albums');
       debugPrint(response.data.toString());
       // parse
       List list = jsonDecode(response.data.toString());
